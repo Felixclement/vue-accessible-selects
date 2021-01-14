@@ -238,75 +238,75 @@ export default /*#__PURE__*/ (Vue as VueConstructor<ISelectSingle>).extend({
 });
 </script>
 <template>
-	<div class="vue-accessible-select-single" :class="{ disabled: isDisabledOrLoading, open }">
-		<label
-			:id="`${htmlId}-label`"
-			class="combo-label"
-			:class="{ 'sr-only': !labelIsVisible }"
-		>
-			{{ label }}
-			<span class="sr-only"> {{ value[labelField] }}</span>
-		</label>
-		<!-- aria-expanded is `open ? 'true' : 'false'` rather than `open` because the latter results in no attribute -->
-		<div
-			:id="htmlId"
-			ref="comboEl"
-			:aria-activedescendant="activeDescendant"
-			aria-autocomplete="none"
-			:aria-controls="`${htmlId}-listbox`"
-			:aria-disabled="isDisabledOrLoading"
-			:aria-expanded="open ? 'true' : 'false'"
-			aria-haspopup="listbox"
-			:aria-labelledby="`${htmlId}-label`"
-			class="combo-input"
-			role="combobox"
-			tabindex="0"
-			@blur="handleBlur"
-			v-on="isDisabledOrLoading ? {} : { mousedown: handleClick, keydown: handleKeydown }"
-		>
-			<span :id="`${htmlId}-value`" ref="valueEl">
-				<!-- @slot Display the loading state via custom template code-->
-				<slot v-if="loading" name="loadingState">
-					Loading...
-				</slot>
-				<!-- @slot Display the currently selected option via custom template code -->
-<<<<<<< HEAD
-				<slot name="selectedOption" :option="value">
-					{{ value[labelField] }}
-=======
-				<slot v-else name="selectedOption" :option="value">
-					{{ value.label }}
->>>>>>> main
-				</slot>
-			</span>
-		</div>
-		<!-- tabindex -->
-		<div
-			:id="`${htmlId}-listbox`"
-			ref="listboxEl"
-			class="combo-menu"
-			role="listbox"
-			@mousedown="onMenuMouseDown"
-		>
-			<div
-				v-for="(option, index) in options"
-				:id="`${htmlId}-item-${index}`"
-				:key="option[valueField].toString()"
-				class="combo-option"
-				:class="{
-					'option-selected': selectedIndex == index,
-					'option-current': index == activeIndex
-				}"
-				role="option"
-				:aria-selected="index == selectedIndex ? 'true' : 'false'"
-				@click="handleOptionClick($event, index)"
-				@mousedown="onOptionMouseDown"
-			>
-				<!-- @slot Display individual options via custom template code -->
-				<slot name="option" :option="option">
-					{{ option[labelField] }}
-				</slot>
-			</div>
-		</div>
-	</div>
+  <div
+    class="vue-accessible-select-single"
+    :class="{ disabled: isDisabledOrLoading, open }"
+  >
+    <label
+      :id="`${htmlId}-label`"
+      class="combo-label"
+      :class="{ 'sr-only': !labelIsVisible }"
+    >
+      {{ label }}
+      <span class="sr-only"> {{ value[labelField] }}</span>
+    </label>
+    <!-- aria-expanded is `open ? 'true' : 'false'` rather than `open` because the latter results in no attribute -->
+    <div
+      :id="htmlId"
+      ref="comboEl"
+      :aria-activedescendant="activeDescendant"
+      aria-autocomplete="none"
+      :aria-controls="`${htmlId}-listbox`"
+      :aria-disabled="isDisabledOrLoading"
+      :aria-expanded="open ? 'true' : 'false'"
+      aria-haspopup="listbox"
+      :aria-labelledby="`${htmlId}-label`"
+      class="combo-input"
+      role="combobox"
+      tabindex="0"
+      @blur="handleBlur"
+      v-on="
+        isDisabledOrLoading
+          ? {}
+          : { mousedown: handleClick, keydown: handleKeydown }
+      "
+    >
+      <span :id="`${htmlId}-value`" ref="valueEl">
+        <!-- @slot Display the loading state via custom template code-->
+        <slot v-if="loading" name="loadingState"> Loading... </slot>
+        <!-- @slot Display the currently selected option via custom template code -->
+        <slot name="selectedOption" :option="value">
+          {{ value[labelField] }}
+        </slot>
+      </span>
+    </div>
+    <!-- tabindex -->
+    <div
+      :id="`${htmlId}-listbox`"
+      ref="listboxEl"
+      class="combo-menu"
+      role="listbox"
+      @mousedown="onMenuMouseDown"
+    >
+      <div
+        v-for="(option, index) in options"
+        :id="`${htmlId}-item-${index}`"
+        :key="option[valueField].toString()"
+        class="combo-option"
+        :class="{
+          'option-selected': selectedIndex == index,
+          'option-current': index == activeIndex,
+        }"
+        role="option"
+        :aria-selected="index == selectedIndex ? 'true' : 'false'"
+        @click="handleOptionClick($event, index)"
+        @mousedown="onOptionMouseDown"
+      >
+        <!-- @slot Display individual options via custom template code -->
+        <slot name="option" :option="option">
+          {{ option[labelField] }}
+        </slot>
+      </div>
+    </div>
+  </div>
 </template>
