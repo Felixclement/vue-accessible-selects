@@ -1,7 +1,7 @@
 {
-  "name": "@politico/vue-accessible-selects",
-  "version": "0.12.0",
-  "description": "Select & Multi Select implementations for Vue, focused especially on implementing accessibility best practices",
+  "name": "@felixclement/vue-accessible-selects",
+  "version": "1.12.0",
+  "description": "Temp fork form @politico Select & Multi Select implementations for Vue, focused especially on implementing accessibility best practices",
   "files": [
     "dist",
     "styles"
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/politico/vue-accessible-selects.git"
+    "url": "git+https://github.com/Felixclement/vue-accessible-selects.git"
   },
   "keywords": [
     "select",
@@ -36,13 +36,14 @@
     "Jack Koppa (https://github.com/jackkoppa)",
     "Hung-Su Nguyen (https://github.com/hungsu)",
     "Evan Sanderson (https://github.com/EvanSanderson)",
-    "Ivan Shtyrliaev (https://github.com/ee923925github)"
+    "Ivan Shtyrliaev (https://github.com/ee923925github)",
+    "Felix Clement (https://github.com/Felixclement)"
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/politico/vue-accessible-selects/issues"
+    "url": "https://github.com/Felixclement/vue-accessible-selects/issues"
   },
-  "homepage": "https://github.com/politico/vue-accessible-selects#readme",
+  "homepage": "https://github.com/Felixclement/vue-accessible-selects#readme",
   "devDependencies": {
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.12.11",
